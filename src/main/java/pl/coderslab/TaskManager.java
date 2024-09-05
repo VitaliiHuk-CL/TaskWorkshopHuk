@@ -1,5 +1,12 @@
 package pl.coderslab;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.Scanner;
+
 public class TaskManager {
 
     static final String FILE_NAME = "tasks.csv";
@@ -13,8 +20,45 @@ public class TaskManager {
             System.out.println(option);
         }
     }
+
     public static void main(String[] args) {
         printOptions(OPTIONS);
+
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            String input = scanner.nextLine();
+
+            switch (input) {
+                case "add":
+                    addTask();
+                    break;
+                case "remove":
+                    removeTask();
+                    break;
+                case "list":
+                    listTasks();
+                    break;
+                case "exit":
+                    System.out.println(ConsoleColors.RED + "Exiting the program...Nara");
+                    return;
+                default:
+                    System.out.println("Please select a correct option.");
+            }
+        }
+
+
+    }
+
+    private static void listTasks() {
+
+    }
+
+    private static void removeTask() {
+
+    }
+
+    private static void addTask() {
+
     }
 }
 
